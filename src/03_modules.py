@@ -8,30 +8,34 @@ level operating system functionality.
 import sys
 # See docs for the sys module: https://docs.python.org/3.7/library/sys.html
 
+"""sys.argv is a list in Python, which contains the command-line arguments passed to the script."""
+
 # Print out the command line arguments in sys.argv, one per line:
-import fileinput
-for line in fileinput.input():
-    process(line)
+for items in sys.argv:
+    print(items)
 
 # Print out the OS platform you're using:
-print(sys.getwindowsversion())
+print("OS platform used:",sys.platform)
 
-"""When I run on terminal, this is the output.  Not sure if this is right.
+"""Original answer: sys.getwindowsversion
 sys.getwindowsversion(major=10, minor=0, build=18363, platform=2, service_pack='')"""
 
 # Print out the version of Python you're using:
-print(sys.version_info)
+print("Version of Python used:",sys.version)
 
-"""Also not sure if this is right."""
+"""Original answer: sys.version_info.
+sys.getwindowsversion(major=10, minor=0, build=18363, platform=2, service_pack='')"""
 
 import os
 # See the docs for the OS module: https://docs.python.org/3.7/library/os.html
+# print("OS platform used is:", d))
 
 # Print the current process ID
-# YOUR CODE HERE
+print("Current process:", os.getpid())
+
 
 # Print the current working directory (cwd):
-# YOUR CODE HERE
+print("Current working directory is:", os.getcwd())
 
 # Print out your machine's login name
-# YOUR CODE HERE
+print("Current machine's login name:", os.getlogin())
