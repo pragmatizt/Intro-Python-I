@@ -12,12 +12,18 @@ for more info regarding list comprehensions.
 
 y = []
 
-print (y)
+for x in range(5):
+    y.append(x+1)
+
+print(y)
 
 # Write a list comprehension to produce the cubes of the numbers 0-9:
 # [0, 1, 8, 27, 64, 125, 216, 343, 512, 729]
 
 y = []
+
+for x in range(10):
+    y.append(x ** 3)
 
 print(y)
 
@@ -26,16 +32,26 @@ print(y)
 
 a = ["foo", "bar", "baz"]
 
-y = []
+y = [x.upper() for x in a]  # Not sure if cheating here, since i did y = that; instead of keeping y = []
 
 print(y)
 
 # Use a list comprehension to create a list containing only the _even_ elements
 # the user entered into list x.
 
+# RESOURCE: https://www.w3schools.com/python/python_try_except.asp  <- regarding try and except
+
 x = input("Enter comma-separated numbers: ").split(',')
 
 # What do you need between the square brackets to make it work?
-y = []
 
+try:
+    y = [int(n) for n in x if (int(n) % 2 == 0)]
+except:
+    print("The program accepts only numbers separated by commas.")
+    y=""
 print(y)
+
+"""The try block lets you text a block of code for errors.
+The except block lets you handle the error.
+The finally block lets you execute code, regardless of the result of the try- and except blocks."""
