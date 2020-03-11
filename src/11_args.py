@@ -44,21 +44,26 @@ def f2(*argv):
 
 print(f2(a))    # Should print 22
 
+"""See link & test.py for hint on how this could also be tackled
+https://www.programiz.com/python-programming/function-argument
+"""
 
 # Write a function f3 that accepts either one or two arguments. If one argument,
 # it returns that value plus 1. If two arguments, it returns the sum of the
 # arguments.
 # Note: Google "python default arguments" for a hint.
 
-"""GREAT RESOURCE: https://www.programiz.com/python-programming/function-argument 
+"""GREAT RESOURCE: https://www.programiz.com/python-programming/function-argument
 Function arguments can have default values in Python. We can provide a default value 
 to an argument by using the assignment operator (=)."""
 
-# def f3():
+def f3(arg1, arg2=None):
+    return arg1 + 1 if arg2 is None else arg1 + arg2
 
 print(f3(1, 2))  # Should print 3
 print(f3(8))     # Should print 9
 
+# GOT IT.  So the =None part was what got me, I didn't know what to assign after that (=) sign before.
 
 # Write a function f4 that accepts an arbitrary number of keyword arguments and
 # prints out the keys and values like so:
@@ -68,12 +73,24 @@ print(f3(8))     # Should print 9
 #
 # Note: Google "python keyword arguments".
 
-# YOUR CODE HERE
+"""When we use keyword/named arguments, it’s the name that matters, not the position:
+Resource: https://treyhunner.com/2018/04/keyword-arguments-in-python/"""
+
+"""NOTE:
+1. items() method is used to return the list with all dict keys with values
+2. F-strings provide a way to embed expressions inside string literals, 
+using a minimal syntax. It should be noted that an f-string is really an 
+expression evaluated at run time, not a constant value
+"""
+
+def f4(**kwargs):
+    [print(f'key: {key}, value: {value}') for key, value in kwargs.items()]
+
 
 # Should print
 # key: a, value: 12
 # key: b, value: 30
-f4(a=12, b=30)
+print(f4(a=12, b=30))
 
 # Should print
 # key: city, value: Berkeley
@@ -86,5 +103,7 @@ d = {
     "hp": 3
 }
 
-# How do you have to modify the f4 call below to make this work?
-f4(d)
+# # How do you have to modify the f4 call below to make this work?
+"""d is a dictionary.  In order to use kwargs with dictionaries, we need to
+include two **'s at the front of the variable"""
+f4(**d)
