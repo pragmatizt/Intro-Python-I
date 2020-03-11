@@ -33,15 +33,27 @@ waypoints = [
     }
 ]
 
+"""Let's print the original out, and then make it cleaner."""
+print("\nORIGINAL:")
+[print(n.values()) for n in waypoints]
+
 # Add a new waypoint to the list
-# YOUR CODE HERE
+waypoints.append({"lat": 26.7, "lon": 80, "name": "Palm Beach"})
+print("\nNEW WAYPOINT:")
+[print(n.values()) for n in waypoints]
+
+#RESOURCE for NEXT PROBLEMS: https://www.pluralsight.com/guides/manipulating-lists-dictionaries-python
 
 # Modify the dictionary with name "a place" such that its longitude
 # value is -130 and change its name to "not a real place"
-# Note: It's okay to access the dictionary using bracket notation on the
-# waypoints list.
+# Note: It's okay to access the dictionary using bracket notation on the waypoints list.
+# Keeping this code, want to ask Q later: waypoints.update({"lon": -130})
+for n in waypoints:
+    if 'a place' in n.values():
+        n['lon'] = -130
+        n["name"] = "not a real place"
 
-# YOUR CODE HERE
 
 # Write a loop that prints out all the field values for all the waypoints
-# YOUR CODE HERE
+print("\nAfter Modification & Loop:")
+[print(n.values()) for n in waypoints]
