@@ -32,3 +32,7 @@ bar.close()
 bar = open('bar.txt', 'r')
 print(bar.read())
 bar.close()
+
+
+"""NOTE: \n is like the enter key.  
+\r provides a space before (after?) that line."""  
